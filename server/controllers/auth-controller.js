@@ -10,11 +10,12 @@ const home = async (req,res) => {
 
 const register = async (req,res) => {
     try {
+        console.log(req.body)
         res
             .status(200)
-            .send("Registration Page")
+            .json({msg: req.body})
     } catch (error) {
-        res.status(404).send({msg: "Page not found"})
+        res.status(400).send({msg: "Page not found"})
     }
 }
 
