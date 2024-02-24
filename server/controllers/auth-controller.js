@@ -1,5 +1,4 @@
 const User = require("../models/user-model")
-const bcrypt = require("bcryptjs")
 
 const home = async (req,res) => {
     try {
@@ -18,10 +17,7 @@ const register = async (req,res) => {
         if (userExist) {
             return res.status(400).json({msg: "Email already exists"})
         }
-        const salt = 10
-        const hashPassword = await bcrypt.hash(password, salt)
-
-        const userCreated = await User.create({username, password: hashPassword, email, phone})
+        const userCreated = await User.create({username, password, email, phone})
         res.status(200).json({msg: userCreated})
     } catch (error) {
         res.status(400).send({msg: "Page not found"})
