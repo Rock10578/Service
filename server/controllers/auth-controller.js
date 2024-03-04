@@ -21,7 +21,8 @@ const register = async (req,res) => {
         const userCreated = await User.create({username, password, email, phone})
         res.status(201).json({msg: "Registration Successfull", token: await userCreated.generateToken(), userId: userCreated._id.toString()})
     } catch (error) {
-        res.status(400).send({msg: "Page not found"})
+        // res.status(400).send({msg: "Page not found"})
+        next(error);
     }
 }
 

@@ -20,7 +20,7 @@ const signupSchema = z.object({
     password: z
             .string({required_error: "Password is required"})
             .min(6,{message: "Password must be atleast of size 6"})
-            .max(100,{message: "Password can't be more than 100 characters"}),
+            .max(100,{message: "Password can't be more than 100 characters"})
 })
 
-module.exports = signupSchema
+module.exports = {signupSchema}

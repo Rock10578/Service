@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { home,register,login } = require("../controllers/auth-controller");
-const signupSchema = require('../validators/auth-validator')
+const {signupSchema} = require('../validators/auth-validator')
 const validate = require('../midllewares/validate-middleware')
 
 router.route('/').get(home)
