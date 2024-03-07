@@ -14,7 +14,7 @@ export const Contact = () => {
 
         setContact({
             ...contact,
-            [name]: value,
+            [name]: value
         })
 
         // 2nd method 

@@ -7,7 +7,7 @@ export const Home = () => {
                         <p>We are the World Best Software Developer</p>
                         <h1>Welcome to Rock Service Website</h1>
                         <p>
-                            Are you ready to take your buisness to the next level with cutting-edge IT solutions? Look no further! At Rock Software Developer, we specialize in providing innovative IT services and solutions tailored to meet your unique needs.
+                            Are you ready to take your business to the next level with cutting-edge IT solutions? Look no further! At Rock Software Developer, we specialize in providing innovative IT services and solutions tailored to meet your unique needs.
                         </p>
                         <div className="btn btn-group">
                             <a href="/contact">
@@ -18,7 +18,7 @@ export const Home = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="her-image">
+                    <div className="hero-image">
                         <img 
                             src="/images/home.png"
                             alt="coding together"
@@ -37,7 +37,7 @@ export const Home = () => {
                     <p>registered companies</p>
                 </div>
                 <div className="div1">
-                    <h2>100,00</h2>
+                    <h2>10,000</h2>
                     <p>Happy Clients</p>
                 </div>
                 <div className="div1">
