@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export const About = () => {
     return(
         <>
@@ -16,12 +18,12 @@ export const About = () => {
                         <p><b>Reliability:</b> Count on us to be there when you need us. We're committed to ensuring your IT environment is reliable and available 24/7.</p>
                         <br/>
                         <div className="btn btn-group">
-                            <a href="/contact">
+                            <NavLink to="/contact">
                                 <button className="btn">Connect Now</button>
-                            </a>
-                            <a href="/service">
+                            </NavLink>
+                            <NavLink to="/service">
                                 <button className="btn secondary-btn">Learn More</button>
-                            </a>
+                            </NavLink>
                         </div>
                     </div>
                     <div className="her-image">
