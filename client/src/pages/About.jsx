@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom"
-import { Analytics } from "./Analytics"
+import { NavLink } from "react-router-dom";
+import { Analytics } from "./Analytics";
 
 export const About = () => {
     return(
