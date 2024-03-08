@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom"
+import { Analytics } from "./Analytics"
 
 export const About = () => {
     return(
         <>
-            <main>
+        <main>
             <section className="section-hero">
                 <div className="container grid grid-two-cols">
                     <div className="hero-content">
@@ -37,6 +38,8 @@ export const About = () => {
                 </div>
             </section>
         </main>
+
+        <Analytics/>
         </>
     )
 }

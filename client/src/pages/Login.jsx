@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "../store/auth"
 
 export const Login = () => {
     const [user,setUser] = useState({
@@ -8,6 +9,8 @@ export const Login = () => {
     })
 
     const navigate = useNavigate()
+
+    const { storeTokenInLS } = useAuth();
 
     const handleInput = (e) => {
         console.log(e)
@@ -34,8 +37,8 @@ export const Login = () => {
         if(response.ok){
             // Storing Token in local storage
             const res_data = await response.json();
-            console.log(res_data);
-            storeTokenInLS(res_data);
+            console.log(res_data.token);
+            storeTokenInLS(res_data.token);
 
             setUser({ email:"", password:"" })
             navigate("/")
