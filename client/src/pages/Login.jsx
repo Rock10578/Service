@@ -32,11 +32,12 @@ export const Login = () => {
                 body: JSON.stringify(user)
             });
         if(response.ok){
-            setUser({
-                email:"",
-                password:""
-            })
+            // Storing Token in local storage
+            const res_data = await response.json();
+            console.log(res_data);
+            storeTokenInLS(res_data);
 
+            setUser({ email:"", password:"" })
             navigate("/")
         }
         } catch (error) {

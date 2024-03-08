@@ -24,6 +24,7 @@ export const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(user)
         try {
             const response = await fetch(`http://localhost:4000/api/auth/register`, {
                 method: "POST",
@@ -34,12 +35,12 @@ export const Register = () => {
             })
 
             if (response.ok){
-                setUser({
-                    username:"",
-                    password:"",
-                    email:"",
-                    phone:""
-                });
+                const res_data = await response.json();
+                console.log("Res from server", res_data)
+                
+                // Store data in local storage
+                stroeTokenInLS(res_data.token);
+                setUser({ username:"", password:"", email:"", phone:"" });
                 navigate("/login")
             }
         } catch (error) {
