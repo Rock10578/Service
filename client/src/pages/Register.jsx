@@ -37,6 +37,9 @@ export const Register = () => {
                 body: JSON.stringify(user),
             })
 
+            const res_data = await response.json();
+            console.log("Res from server", res_data)
+
             if (response.ok){
 
                 // Store data in local storage
@@ -47,7 +50,9 @@ export const Register = () => {
 
                 setUser({ username:"", password:"", email:"", phone:"" });
                 navigate("/login")
-            }
+            } else {
+                alert(res_data.extraDetails ? res_data.extraDetails : res_data.message)
+            } 
         } catch (error) {
             console.log("Register : ", error)
         }

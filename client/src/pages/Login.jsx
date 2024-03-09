@@ -34,14 +34,19 @@ export const Login = () => {
                 },
                 body: JSON.stringify(user)
             });
+
+            const res_data = await response.json();
+            console.log(res_data)
+            
             if(response.ok){
                 // Storing Token in local storage
-                const res_data = await response.json();
                 console.log(res_data.token);
                 storeTokenInLS(res_data.token);
 
                 setUser({ email:"", password:"" })
                 navigate("/")
+            }else{
+                alert(res_data.extraDetails ? res_data.extraDetails : res_data.msg)
             }
         } catch (error) {
             console.log("Login : ",error)
