@@ -8,8 +8,8 @@ export const Navbar = () => {
     return (
         <>
             <header>
-                <div classname="container">
-                    <div classname="logo-brand">
+                <div className="container">
+                    <div className="logo-brand">
                         <NavLink to="/">Rock10578</NavLink>
                     </div>
                     <nav>

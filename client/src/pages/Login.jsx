@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../store/auth"
 
@@ -34,15 +34,15 @@ export const Login = () => {
                 },
                 body: JSON.stringify(user)
             });
-        if(response.ok){
-            // Storing Token in local storage
-            const res_data = await response.json();
-            console.log(res_data.token);
-            storeTokenInLS(res_data.token);
+            if(response.ok){
+                // Storing Token in local storage
+                const res_data = await response.json();
+                console.log(res_data.token);
+                storeTokenInLS(res_data.token);
 
-            setUser({ email:"", password:"" })
-            navigate("/")
-        }
+                setUser({ email:"", password:"" })
+                navigate("/")
+            }
         } catch (error) {
             console.log("Login : ",error)
         }

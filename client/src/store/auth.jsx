@@ -11,7 +11,7 @@ export const AuthProvider = ({children}) => {
     }
 
     let isLoggedIn = !!token;
-    console.log("isLogedIn",isLoggedIn)
+    // console.log("isLogedIn",isLoggedIn)
 
     // tackling the logout functionality
     const LogoutUser = () => {
@@ -20,7 +20,6 @@ export const AuthProvider = ({children}) => {
     }
 
     // JWT Authentication - to get currently logged in user data
-
     const userAuthentication = async () => {
         try {
             const response = await fetch("http://localhost:4000/api/auth/user", {

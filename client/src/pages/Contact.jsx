@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import { useNavigate } from "react-router-dom";
 
 export const Contact = () => {
 
@@ -10,6 +11,8 @@ export const Contact = () => {
     })
     const [userData,setUserData] = useState(true);
     const {user} = useAuth();
+
+    const navigate = useNavigate();
 
     if(userData && user){
         setContact({
@@ -36,10 +39,22 @@ export const Contact = () => {
         // }))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // alert(user);
-        console.log(contact)
+        try {
+            const response = await fetch(`http://localhost:4000/api/form/contact`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(contact)
+            });
+            if (response.ok){
+                navigate("/")
+            }
+        } catch (error) {
+            console.log("Error from contact handleSubmit : ", error)
+        }
     }
 
 

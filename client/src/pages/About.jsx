@@ -3,7 +3,7 @@ import { Analytics } from "../components/Analytics";
 import { useAuth } from "../store/auth"; 
 
 export const About = () => {
-    const { user } = useAuth();
+    const { user, isLoggedIn } = useAuth();
 
     return(
         <>
@@ -11,7 +11,7 @@ export const About = () => {
             <section className="section-hero">
                 <div className="container grid grid-two-cols">
                     <div className="hero-content">
-                        <p>Welcome, {user.username}</p>
+                        <p>Welcome, { isLoggedIn ? ` ${user.username} to our website`: "to our website" }</p>
                         <h1>Why Choose Us?</h1>
                         <p><b>Expertise:</b> Our team consists of experience IT professionals who are passionate about staying up-to-date with the latest industry trends.</p>
                         <br/>
