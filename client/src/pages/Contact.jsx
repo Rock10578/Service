@@ -8,9 +8,7 @@ export const Contact = () => {
         email:"",
         message:""
     })
-
     const [userData,setUserData] = useState(true);
-
     const {user} = useAuth();
 
     if(userData && user){

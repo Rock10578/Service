@@ -1,14 +1,17 @@
 import { NavLink } from "react-router-dom";
-import { Analytics } from "./Analytics";
+import { Analytics } from "../components/Analytics";
+import { useAuth } from "../store/auth"; 
 
 export const About = () => {
+    const { user } = useAuth();
+
     return(
         <>
         <main>
             <section className="section-hero">
                 <div className="container grid grid-two-cols">
                     <div className="hero-content">
-                        <p>Welcome, Rock the Developer</p>
+                        <p>Welcome, {user.username}</p>
                         <h1>Why Choose Us?</h1>
                         <p><b>Expertise:</b> Our team consists of experience IT professionals who are passionate about staying up-to-date with the latest industry trends.</p>
                         <br/>
