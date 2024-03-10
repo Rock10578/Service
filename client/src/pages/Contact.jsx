@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const Contact = () => {
 
@@ -50,7 +51,10 @@ export const Contact = () => {
                 body: JSON.stringify(contact)
             });
             if (response.ok){
+                toast.success("Message send Successfully");
                 navigate("/")
+            } else{
+                toast.error("Something went wrong while sending the message")
             }
         } catch (error) {
             console.log("Error from contact handleSubmit : ", error)
