@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const Contact = () => {
-
     const [contact,setContact] = useState({
         username:"",
         email:"",
@@ -14,7 +13,7 @@ export const Contact = () => {
     const {user} = useAuth();
 
     const navigate = useNavigate();
-
+    
     if(userData && user){
         setContact({
             username: user.username,
@@ -31,13 +30,7 @@ export const Contact = () => {
         setContact({
             ...contact,
             [name]: value
-        })
-
-        // 2nd method 
-        // setContact((prev) => ({
-        //     ...prev,
-        //     [name]: value,
-        // }))
+        })   
     }
 
     const handleSubmit = async (e) => {
@@ -85,6 +78,7 @@ export const Contact = () => {
                                     name="username"
                                     id="username"
                                     autoComplete="off"
+                                    placeholder="Enter Your Username"
                                     value={contact.username}
                                     onChange={handleInput}
                                     required
@@ -98,6 +92,7 @@ export const Contact = () => {
                                     id="email"
                                     autoComplete="off"
                                     value={contact.email}
+                                    placeholder="Enter your Email"
                                     onChange={handleInput}
                                     required
                                 />
@@ -108,6 +103,7 @@ export const Contact = () => {
                                     name="message" 
                                     id="message" 
                                     autoComplete="off"
+                                    placeholder="Please write your message....."
                                     value={contact.message}
                                     onChange={handleInput}
                                     required
