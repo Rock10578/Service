@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { useAuth } from "../store/auth"
+import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 export const Login = () => {
     const [user,setUser] = useState({
@@ -9,7 +10,6 @@ export const Login = () => {
     })
 
     const navigate = useNavigate()
-
     const { storeTokenInLS } = useAuth();
 
     const handleInput = (e) => {
@@ -39,14 +39,14 @@ export const Login = () => {
             console.log(res_data)
             
             if(response.ok){
+                toast.success("Login Successfully");
                 // Storing Token in local storage
-                console.log(res_data.token);
                 storeTokenInLS(res_data.token);
 
                 setUser({ email:"", password:"" })
                 navigate("/")
             }else{
-                alert(res_data.extraDetails ? res_data.extraDetails : res_data.msg)
+                toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.msg)
             }
         } catch (error) {
             console.log("Login : ",error)
