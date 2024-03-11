@@ -10,14 +10,18 @@ const authMiddleware = async (req,res,next) => {
                 .json({message:"Unauthorized HTTP, Token not provided"});
     }
     const jwtToken = token.replace("Bearer", "").trim()
-    console.log('token from auth middleware', jwtToken);
+    // console.log('token from auth middleware', jwtToken);
 
     try {
         const isVerified = jwt.verify(jwtToken, process.env.JWT_SECRET)
         const userData = await User.findOne({email:isVerified.email}).select({
             password: 0,
         });
-        console.log(userData);
+        if (userData.isAdmin === false){
+            res.status(400).json({msg: "You are not permitted to view database"})
+            next()
+        }
+        // console.log("Auth Middleware userdata: ",userData);
 
         req.user = userData;
         req.token = token;;
@@ -26,7 +30,6 @@ const authMiddleware = async (req,res,next) => {
     } catch (error) {
         return res.status(401).json({message: "Unauthorized. Invalid token"});
     }
-
 
     next();
 }

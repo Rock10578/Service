@@ -15,11 +15,29 @@ export const AdminUsers = () => {
             })
             const data = await response.json();
             setUsers(data)
-            console.log(`users ${data}`)
+            // console.log(`users ${data}`)
         } catch (error) {
             console.log(error);
         }
     };
+
+    const deleteUser = async (id) => {
+        try {
+            const response = fetch(`http://localhost:4000/api/admin/users/delete/${id}`, {
+                method: "DELETE",
+                headers:{
+                    Authorization: authorizationToken,
+                }
+            });
+            console.log((await response).statusText);
+            if ((await response).statusText){
+                getAllUsersData();
+            }
+            
+        } catch (error) {
+            console.log("Error from delete user function :",error)
+        }
+    }
 
     useEffect(() => {
         getAllUsersData();
@@ -43,13 +61,14 @@ export const AdminUsers = () => {
                         </thead>
                         <tbody>
                             {users.map((curUser, index) => {
+                                const {_id, username, email, phone } = curUser
                                 return (
                                     <tr key={index}>
-                                        <td>{curUser.username}</td>
-                                        <td>{curUser.email}</td>
-                                        <td>{curUser.phone}</td>
+                                        <td>{username}</td>
+                                        <td>{email}</td>
+                                        <td>{phone}</td>
                                         <td>Edit</td>
-                                        <td>Delete</td>
+                                        <td><button onClick={() => deleteUser(_id)}>Delete </button></td>
                                     </tr>
                                 );
                             })}
