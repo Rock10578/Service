@@ -123,7 +123,7 @@ export const Contact = () => {
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.8488029730156!2d77.44338137570048!3d28.634293284000304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cee22c60837b7%3A0x7c35343eceb7bde0!2sABES%20Engineering%20College!5e0!3m2!1sen!2sin!4v1709801700355!5m2!1sen!2sin" 
                         width="100%" 
                         height="450" 
-                        allowfullscreen
+                        allowFullScreen
                         loading="lazy" 
                         referrerPolicy="no-referrer-when-downgrade">
                     </iframe>

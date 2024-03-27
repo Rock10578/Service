@@ -3,6 +3,7 @@ const User = require('../models/user-model');
 
 const authMiddleware = async (req,res,next) => {
     const token = req.header('Authorization');
+    console.log("auth-middleware - token :",token);
 
     if (!token) {
         return res
@@ -24,13 +25,12 @@ const authMiddleware = async (req,res,next) => {
         // console.log("Auth Middleware userdata: ",userData);
 
         req.user = userData;
-        req.token = token;;
-        req.userId = userData._id
+        req.token = token;
+        req.userId = userData._id;
 
     } catch (error) {
         return res.status(401).json({message: "Unauthorized. Invalid token"});
     }
-
     next();
 }
 

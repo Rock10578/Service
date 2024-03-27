@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
@@ -13,7 +13,7 @@ export const Login = () => {
     const { storeTokenInLS } = useAuth();
 
     const handleInput = (e) => {
-        console.log(e)
+        // console.log(e)
         let name = e.target.name;
         let value = e.target.value;
 

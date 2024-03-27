@@ -51,7 +51,7 @@ export const AdminUsers = () => {
                 <div className="container admin-users">
                     <table>
                         <thead>
-                            <tr>
+                            <tr style={{color:"black", fontSize:"24px"}}>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -59,6 +59,7 @@ export const AdminUsers = () => {
                                 <th>Delete</th>
                             </tr>
                         </thead>
+                        <hr/>
                         <tbody>
                             {users.map((curUser, index) => {
                                 const {_id, username, email, phone } = curUser
